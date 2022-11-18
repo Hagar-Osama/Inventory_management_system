@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminProfileController;
+use App\Http\Controllers\Admin\SliderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +31,15 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/profile/update', [AdminProfileController::class, 'update'])->name('profile.update');
     Route::get('/password/edit/{adminId}', [AdminProfileController::class, 'changePasswordIndex'])->name('password.edit');
     Route::post('/password/update', [AdminProfileController::class, 'updatePassword'])->name('password.change');
+//slider Routes
+Route::controller(SliderController::class)->prefix('slider')->as('slider.')->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('/create', 'create')->name('create');
+    Route::post('/store', 'store')->name('store');
+    Route::get('/edit/{sliderId}', 'edit')->name('edit');
+    Route::put('/update', 'update')->name('update');
+    Route::delete('/delete', 'destroy')->name('destroy');
+});
 
 
 

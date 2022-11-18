@@ -26,7 +26,7 @@
 <!-- App js -->
 <script src="{{asset('backend/assets/js/app.js')}}"></script>
 
-<!-- Toster js -->
+<!-- Toaster js -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 <script>
