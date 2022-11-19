@@ -18,19 +18,22 @@
             </li>
 
             <li>
-                <a href="calendar.html" class=" waves-effect">
-                    <i class="ri-calendar-2-line"></i>
-                    <span>Calendar</span>
-                </a>
-            </li>
-
-            <li>
                 <a href="javascript: void(0);" class="has-arrow waves-effect">
                     <i class="ri-mail-send-line"></i>
                     <span>Sliders</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
                     <li><a href="{{route('slider.index')}}">View</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                    <i class="ri-calendar-2-line"></i>
+                    <span>About</span>
+                </a>
+                <ul class="sub-menu" aria-expanded="false">
+                    <li><a href="{{route('about.index')}}">View</a></li>
                 </ul>
             </li>
 

@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 @section('title')
-Dashboard | Sliders
+Dashboard | About
 @endsection
 @section('css')
 <link href="{{asset('backend/assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
@@ -15,12 +15,12 @@ Dashboard | Sliders
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0">Slider Table</h4>
+                        <h4 class="mb-sm-0">About Table</h4>
 
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Home</a></li>
-                                <li class="breadcrumb-item active">Slider Table</li>
+                                <li class="breadcrumb-item active">About Table</li>
                             </ol>
                         </div>
 
@@ -32,34 +32,34 @@ Dashboard | Sliders
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4>Sliders
-                            <a href="{{route('slider.create')}}" class="btn btn-primary waves-effect waves-light float-end mb-4">Add Slider</a>
+                            <h4>About
+                            <a href="{{route('about.create')}}" class="btn btn-primary waves-effect waves-light float-end mb-4">Add About</a>
                             </h4><br><br>
                             <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                 <thead>
                                     <tr>
                                         <th>#</th>
                                         <th>Title</th>
-                                        <th>Description</th>
+                                        <th>Short Description</th>
                                         <th>Image</th>
-                                        <th>Video</th>
+                                        <th>Description</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
 
 
                                 <tbody>
-                                    @foreach($sliders as $slider)
+                                    @foreach($abouts as $about)
                                     <tr>
                                         <td>{{$loop->iteration}}</td>
-                                        <td>{{mb_substr($slider->title,0,30). '...'}}</td>
-                                        <td>{{mb_substr($slider->description,0,30). '...'}}</td>
-                                        <td> <img class="rounded avatar-lg" src="{{(! empty($slider->image)) ? asset('storage/images/sliders/'.$slider->image ) : asset('backend/assets/images/users/no_image.jpg') }}" alt="Slider image">
+                                        <td>{{mb_substr($about->title,0,30). '...'}}</td>
+                                        <td>{{mb_substr($about->short_description,0,30). '...'}}</td>
+                                        <td> <img class="rounded avatar-lg" src="{{(! empty($about->image)) ? asset('storage/images/about/'.$about->image ) : asset('backend/assets/images/users/no_image.jpg') }}" alt="About image">
                                         </td>
-                                        <td>{{$slider->video}}</td>
+                                        <td>{{mb_substr($about->description,0,30). '...'}}</td>
                                         <td>
-                                            <a href="{{route('slider.edit', $slider->id)}}" class="btn btn-warning waves-effect waves-light">Edit</a>
-                                            <a href="{{route('slider.destroy')}}" class="btn btn-danger waves-effect waves-light">Delete</a>
+                                            <a href="{{route('about.edit', $about->id)}}" class="btn btn-warning waves-effect waves-light">Edit</a>
+                                            <a href="{{route('about.destroy')}}" class="btn btn-danger waves-effect waves-light">Delete</a>
                                         </td>
                                     </tr>
                                     @endforeach

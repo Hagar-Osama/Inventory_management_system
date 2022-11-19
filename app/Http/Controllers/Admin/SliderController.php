@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\AddSliderRequest;
 use App\Http\Requests\DeleteSliderRequest;
 use App\Http\Requests\UpdateSliderRequest;
-use App\Http\Services\SliderService;
+use App\Http\AdminServices\SliderService;
 use Illuminate\Http\Request;
 
 class SliderController extends Controller

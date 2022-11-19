@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 @section('title')
-Dashboard | Add Slider
+Dashboard | Edit About
 @endsection
 @section('content')
 <div class="main-content">
@@ -11,7 +11,7 @@ Dashboard | Add Slider
                 <div class="col-xl-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Add Slider</h4><br>
+                            <h4 class="card-title">Edit About</h4>
                             @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -22,12 +22,25 @@ Dashboard | Add Slider
                             </div>
                             @endif
 
-                            <form class="custom-validation" action="{{route('slider.store')}}" method="POST" enctype="multipart/form-data">
+                            <form class="custom-validation" action="{{route('about.update')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
+                                @method('PUT')
+                                <input type="hidden" name="aboutId" value="{{$about->id}}">
                                 <div class="mb-3">
                                     <label>Title</label>
-                                    <input type="text" name="title" value="{{old('title')}}" class="form-control" required placeholder="Title" />
+                                    <input type="text" name="title" value="{{$about->title}}" class="form-control" placeholder="Title" />
                                     @error('title')
+                                    <span class="text-danger" role="alert">
+                                        <strong>{{$message}}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                                <div class="mb-3">
+                                    <label>Short Description</label>
+                                    <div>
+                                        <textarea name="short_description" class="form-control" rows="5">{{$about->short_description}}</textarea>
+                                    </div>
+                                    @error('short_description')
                                     <span class="text-danger" role="alert">
                                         <strong>{{$message}}</strong>
                                     </span>
@@ -37,7 +50,7 @@ Dashboard | Add Slider
                                 <div class="mb-3">
                                     <label>Description</label>
                                     <div>
-                                        <textarea name="description" class="form-control" rows="5">{{old('description')}}</textarea>
+                                        <textarea name="description" class="form-control" rows="5">{{$about->description}}</textarea>
                                     </div>
                                     @error('description')
                                     <span class="text-danger" role="alert">
@@ -46,24 +59,12 @@ Dashboard | Add Slider
                                     @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <label>Video</label>
-                                    <div>
-                                        <input type="url" name="video" class="form-control" required  placeholder="Video Url" />
-                                    </div>
-                                    @error('video')
-                                    <span class="text-danger" role="alert">
-                                        <strong>{{$message}}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-
-                                <div class="mb-3">
                                     <label>Image</label>
                                     <div class="col-lg-12">
                                         <div class="input-group">
 
                                             <input type="file" name="image" class="form-control" id="image">
-                                            <img id="showImage" class="rounded avatar-lg" src="{{asset('backend/assets/images/users/no_image.jpg') }}" style="width: 8%; height:8%;" alt="About image">
+                                            <img id="showImage" class="rounded avatar-lg" src="{{(! empty($about->image)) ? asset('storage/images/about/'.$about->image ) : asset('backend/assets/images/users/no_image.jpg') }}" style="width: 8%; height:8%;" alt="Slider image">
                                             @error('image')
                                             <span class="text-danger" role="alert">
                                                 <strong>{{$message}}</strong>
@@ -75,7 +76,7 @@ Dashboard | Add Slider
                                 <div class="mb-0">
                                     <div>
                                         <button type="submit" class="btn btn-primary waves-effect waves-light me-1">
-                                            Save
+                                            Update
                                         </button>
                                         <button type="reset" class="btn btn-secondary waves-effect">
                                             Cancel

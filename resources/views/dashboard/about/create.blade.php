@@ -22,35 +22,34 @@ Dashboard | Add Slider
                             </div>
                             @endif
 
-                            <form class="custom-validation" action="{{route('slider.store')}}" method="POST" enctype="multipart/form-data">
+                            <form class="custom-validation" action="{{route('about.store')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-3">
                                     <label>Title</label>
-                                    <input type="text" name="title" value="{{old('title')}}" class="form-control" required placeholder="Title" />
+                                    <input type="text" name="title" class="form-control" required placeholder="Title" />
                                     @error('title')
                                     <span class="text-danger" role="alert">
                                         <strong>{{$message}}</strong>
                                     </span>
                                     @enderror
                                 </div>
-
                                 <div class="mb-3">
-                                    <label>Description</label>
+                                    <label>Short Description</label>
                                     <div>
-                                        <textarea name="description" class="form-control" rows="5">{{old('description')}}</textarea>
+                                        <textarea name="short_description" class="form-control" rows="5">{{old('short_description')}}</textarea>
                                     </div>
-                                    @error('description')
+                                    @error('short_description')
                                     <span class="text-danger" role="alert">
                                         <strong>{{$message}}</strong>
                                     </span>
                                     @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <label>Video</label>
+                                    <label>Description</label>
                                     <div>
-                                        <input type="url" name="video" class="form-control" required  placeholder="Video Url" />
+                                        <textarea name="description" class="form-control" rows="5"></textarea>
                                     </div>
-                                    @error('video')
+                                    @error('description')
                                     <span class="text-danger" role="alert">
                                         <strong>{{$message}}</strong>
                                     </span>
@@ -63,7 +62,7 @@ Dashboard | Add Slider
                                         <div class="input-group">
 
                                             <input type="file" name="image" class="form-control" id="image">
-                                            <img id="showImage" class="rounded avatar-lg" src="{{asset('backend/assets/images/users/no_image.jpg') }}" style="width: 8%; height:8%;" alt="About image">
+                                            <img id="showImage" class="rounded avatar-lg" src="{{asset('backend/assets/images/users/no_image.jpg') }}" style="width: 8%; height:8%;" alt="Slider image">
                                             @error('image')
                                             <span class="text-danger" role="alert">
                                                 <strong>{{$message}}</strong>

@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 @section('title')
-Dashboard | Add Slider
+Dashboard | Edit Slider
 @endsection
 @section('content')
 <div class="main-content">
@@ -11,7 +11,7 @@ Dashboard | Add Slider
                 <div class="col-xl-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Edit Admin Profile</h4>
+                            <h4 class="card-title">Edit Slider</h4>
                             @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -109,4 +109,7 @@ Dashboard | Add Slider
         });
     });
 </script>
+<script src="{{asset('backend/assets/libs/parsleyjs/parsley.min.js')}}"></script>
+
+<script src="{{asset('backend/assets/js/pages/form-validation.init.js')}}"></script>
 @endsection

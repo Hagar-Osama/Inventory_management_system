@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\EndUser\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,11 +17,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::controller(HomeController::class)->group(function () {
+Route::get('/', 'index')->name('homePage');
 });
-
-
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
@@ -40,6 +44,17 @@ Route::controller(SliderController::class)->prefix('slider')->as('slider.')->gro
     Route::put('/update', 'update')->name('update');
     Route::delete('/delete', 'destroy')->name('destroy');
 });
+
+//About Routes
+Route::controller(AboutController::class)->prefix('about')->as('about.')->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('/create', 'create')->name('create');
+    Route::post('/store', 'store')->name('store');
+    Route::get('/edit/{aboutId}', 'edit')->name('edit');
+    Route::put('/update', 'update')->name('update');
+    Route::delete('/delete', 'destroy')->name('destroy');
+});
+
 
 
 

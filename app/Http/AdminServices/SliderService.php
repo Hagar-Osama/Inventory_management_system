@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Services;
+namespace App\Http\AdminServices;
 
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Traits\SliderTrait;
 use App\Http\Traits\UploadTraits;
 use App\Models\Slider;
 use Exception;
+use Image;
 
 class SliderService extends SliderController
 {
@@ -37,13 +38,14 @@ class SliderService extends SliderController
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
                 $imageName = $image->hashName();
-                $this->uploadFile($image, 'images/sliders', $imageName);
+                Image::make($image)->resize(636,852)->save('storage/images/sliders/'. $imageName);
+                // $this->uploadFile($image, 'images/sliders', $imageName)->resize(636,852);
             }
             $this->sliderModel::create([
                 'title' => $request->title,
                 'description' => $request->description,
                 'video' => $request->video,
-                'image' => $imageName
+                'image' => (isset($imageName)) ? $imageName : null
             ]);
             $message = array(
                 'message' => 'Slider is Added Successfully',
