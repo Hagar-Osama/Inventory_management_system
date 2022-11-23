@@ -26,4 +26,10 @@ class HomeService extends HomeController {
         $about = $this->aboutModel::first();
         return view('welcome', compact('slider', 'about'));
     }
+
+    public function aboutPage()
+    {
+        $about = $this->aboutModel::first();
+        return view('about', compact( 'about'));
+    }
 }

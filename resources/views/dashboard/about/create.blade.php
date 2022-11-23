@@ -47,7 +47,7 @@ Dashboard | Add Slider
                                 <div class="mb-3">
                                     <label>Description</label>
                                     <div>
-                                        <textarea name="description" class="form-control" rows="5"></textarea>
+                                        <textarea id="elm1" name="description"></textarea>
                                     </div>
                                     @error('description')
                                     <span class="text-danger" role="alert">
@@ -61,7 +61,7 @@ Dashboard | Add Slider
                                     <div class="col-lg-12">
                                         <div class="input-group">
 
-                                            <input type="file" name="image" class="form-control" id="image">
+                                            <input type="file" name="image[]" class="form-control" id="image" multiple>
                                             <img id="showImage" class="rounded avatar-lg" src="{{asset('backend/assets/images/users/no_image.jpg') }}" style="width: 8%; height:8%;" alt="Slider image">
                                             @error('image')
                                             <span class="text-danger" role="alert">
@@ -109,4 +109,9 @@ Dashboard | Add Slider
 <script src="{{asset('backend/assets/libs/parsleyjs/parsley.min.js')}}"></script>
 
 <script src="{{asset('backend/assets/js/pages/form-validation.init.js')}}"></script>
+<!--tinymce js-->
+<script src="{{asset('backend/assets/libs/tinymce/tinymce.min.js')}}"></script>
+
+<!-- init js -->
+<script src="{{asset('backend/assets/js/pages/form-editor.init.js')}}"></script>
 @endsection

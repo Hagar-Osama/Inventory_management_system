@@ -50,7 +50,7 @@ Dashboard | Edit About
                                 <div class="mb-3">
                                     <label>Description</label>
                                     <div>
-                                        <textarea name="description" class="form-control" rows="5">{{$about->description}}</textarea>
+                                        <textarea id="elm1" name="description" class="form-control" rows="5">{{$about->description}}</textarea>
                                     </div>
                                     @error('description')
                                     <span class="text-danger" role="alert">
@@ -111,4 +111,9 @@ Dashboard | Edit About
 <script src="{{asset('backend/assets/libs/parsleyjs/parsley.min.js')}}"></script>
 
 <script src="{{asset('backend/assets/js/pages/form-validation.init.js')}}"></script>
+<!--tinymce js-->
+<script src="{{asset('backend/assets/libs/tinymce/tinymce.min.js')}}"></script>
+
+<!-- init js -->
+<script src="{{asset('backend/assets/js/pages/form-editor.init.js')}}"></script>
 @endsection

@@ -20,4 +20,9 @@ class HomeController extends Controller
         return $this->HomeService->index();
     }
 
+    public function aboutPage()
+    {
+        return $this->HomeService->aboutPage();
+    }
+
 }
