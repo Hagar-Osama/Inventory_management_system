@@ -22,12 +22,11 @@ Rasalina - About Me
     </div>
     <div class="breadcrumb__wrap__icon">
         <ul>
-            <li><img src="{{asset('frontend/assets/img/icons/breadcrumb_icon01.png')}}" alt=""></li>
-            <li><img src="{{asset('frontend/assets/img/icons/breadcrumb_icon02.png')}}" alt=""></li>
-            <li><img src="{{asset('frontend/assets/img/icons/breadcrumb_icon03.png')}}" alt=""></li>
-            <li><img src="{{asset('frontend/assets/img/icons/breadcrumb_icon04.png')}}" alt=""></li>
-            <li><img src="{{asset('frontend/assets/img/icons/breadcrumb_icon05.png')}}" alt=""></li>
-            <li><img src="{{asset('frontend/assets/img/icons/breadcrumb_icon06.png')}}" alt=""></li>
+            @foreach($aboutImages as $aboutImage)
+            <li>
+                <img src="{{asset('storage/images/about/'.$aboutImage->image )}}" alt="">
+            </li>
+            @endforeach
         </ul>
     </div>
 </section>
@@ -53,10 +52,10 @@ Rasalina - About Me
                             <img src="{{asset('frontend/assets/img/icons/about_icon.png')}}" alt="">
                         </div>
                         <div class="about__exp__content">
-                            <p><span>{!!$about->short_description!!}</p>
+                            <p><span>{!!$about->short_title!!}</p>
                         </div>
                     </div>
-                    <p class="desc">{{$about->description}}</p>
+                    <p class="desc">{{$about->short_description}}</p>
                     <a href="about.html" class="btn">Download my resume</a>
                 </div>
             </div>
@@ -80,7 +79,7 @@ Rasalina - About Me
                     </ul>
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="about" role="tabpanel" aria-labelledby="about-tab">
-                            <p class="desc">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of lorem ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the lorem ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated lorem ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+                            <p class="desc">{!!$about->description}</p>
                             <ul class="about__exp__list">
                                 <li>
                                     <h5 class="title">User experience design - (Product Design)</h5>

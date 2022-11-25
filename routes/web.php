@@ -53,6 +53,18 @@ Route::controller(AboutController::class)->prefix('about')->as('about.')->group(
     Route::get('/edit/{aboutId}', 'edit')->name('edit');
     Route::put('/update', 'update')->name('update');
     Route::delete('/delete', 'destroy')->name('destroy');
+    //multiple Images Routes
+    Route::get('/images', 'aboutImagesIndex')->name('images.index');
+    Route::get('/images/create', 'createMultipleImages')->name('images.create');
+    Route::post('/images/store', 'addMultipleImages')->name('images.store');
+    Route::get('/images/edit/{image}', 'editMultipleImages')->name('images.edit');
+    Route::put('/images/update', 'updateMultipleImages')->name('images.update');
+    Route::get('/images/destroy/{image}', 'destroyMultipleImages')->name('images.destroy');
+
+
+
+
+
 });
 
 

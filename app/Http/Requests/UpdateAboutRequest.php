@@ -25,6 +25,7 @@ class UpdateAboutRequest extends FormRequest
     {
         return [
             'title' => 'nullable|string',
+            'short_title' => 'nullable|string',
             'description' => 'nullable|min:10|max:2500',
             'image' => 'nullable|image|mimes:png,jpg,svg,jpeg,gif',
             'short_description' => 'nullable|min:10|max:2500',

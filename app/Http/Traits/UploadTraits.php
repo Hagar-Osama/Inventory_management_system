@@ -39,7 +39,7 @@ trait UploadTraits
     public function deleteFile($path)
     {
         if (File::exists($path)) {
-            File::deleteDirectory($path);
+            File::delete($path);
         }
     }
 

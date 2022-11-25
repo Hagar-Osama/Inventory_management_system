@@ -37,34 +37,12 @@ Rasalina - Personal Portfolio HTML Template
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <ul class="about__icons__wrap">
+                        @foreach($aboutImages as $aboutImage)
                         <li>
-                            <img class="light" src="{{asset('frontend/assets/img/icons/xd_light.png')}}" alt="XD">
-                            <img class="dark" src="{{asset('frontend/assets/img/icons/xd.png')}}" alt="XD">
+                            <img class="light" src="{{asset('storage/images/about/'.$aboutImage->image )}}" alt="XD">
                         </li>
-                        <li>
-                            <img class="light" src="{{asset('frontend/assets/img/icons/skeatch_light.png')}}" alt="Skeatch">
-                            <img class="dark" src="{{asset('frontend/assets/img/icons/skeatch.png')}}" alt="Skeatch">
-                        </li>
-                        <li>
-                            <img class="light" src="{{asset('frontend/assets/img/icons/illustrator_light.png')}}" alt="Illustrator">
-                            <img class="dark" src="{{asset('frontend/assets/img/icons/illustrator.png')}}" alt="Illustrator">
-                        </li>
-                        <li>
-                            <img class="light" src="{{asset('frontend/assets/img/icons/hotjar_light.png')}}" alt="Hotjar">
-                            <img class="dark" src="{{asset('frontend/assets/img/icons/hotjar.png')}}" alt="Hotjar">
-                        </li>
-                        <li>
-                            <img class="light" src="{{asset('frontend/assets/img/icons/invision_light.png')}}" alt="Invision">
-                            <img class="dark" src="{{asset('frontend/assets/img/icons/invision.png')}}" alt="Invision">
-                        </li>
-                        <li>
-                            <img class="light" src="{{asset('frontend/assets/img/icons/photoshop_light.png')}}" alt="Photoshop">
-                            <img class="dark" src="{{asset('frontend/assets/img/icons/photoshop.png')}}" alt="Photoshop">
-                        </li>
-                        <li>
-                            <img class="light" src="{{asset('frontend/assets/img/icons/figma_light.png')}}" alt="Figma">
-                            <img class="dark" src="{{asset('frontend/assets/img/icons/figma.png')}}" alt="Figma">
-                        </li>
+                        @endforeach
+
                     </ul>
                 </div>
                 <div class="col-lg-6">
@@ -78,10 +56,10 @@ Rasalina - Personal Portfolio HTML Template
                                 <img src="{{asset('frontend/assets/img/icons/about_icon.png')}}" alt="">
                             </div>
                             <div class="about__exp__content">
-                                <p>{!!$about->short_description!!}</p>
+                                <p>{!!$about->short_title!!}</p>
                             </div>
                         </div>
-                        <p class="desc">{{$about->description}}</p>
+                        <p class="desc">{{$about->short_description}}</p>
                         <a href="about.html" class="btn">Download my resume</a>
                     </div>
                 </div>

@@ -36,6 +36,15 @@ Dashboard | Edit About
                                     @enderror
                                 </div>
                                 <div class="mb-3">
+                                    <label>Short Title</label>
+                                    <input type="text" name="short_title" value="{{$about->short_title}}" class="form-control" placeholder="Title" />
+                                    @error('short_title')
+                                    <span class="text-danger" role="alert">
+                                        <strong>{{$message}}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                                <div class="mb-3">
                                     <label>Short Description</label>
                                     <div>
                                         <textarea name="short_description" class="form-control" rows="5">{{$about->short_description}}</textarea>
